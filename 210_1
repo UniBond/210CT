@@ -1,16 +1,16 @@
-import random                   #imports random module
-inputArray = [5,3,8,6,1,9,2,7]  #array to be shuffled
+import random
+inputArray = [5,3,8,6,1,9,2,7]
 
 
 def arrayShuffle(inputArray):
-    outputArray = [] #defining a list
-    print("Original Array: " + str(inputArray)) #prints original array
-    for i in range(len(inputArray)): #loops over length of original array
-        r = random.randint(0, len(inputArray)) #get random number in array
-        r = r-1                           #one less so it fits list
-        outputArray.append(inputArray[r]) #append chosen int to output
-        inputArray.remove(inputArray[r])  #remove chosen int from input
-    return("New Array: " + str(outputArray)) #return
+    outputArray = []
+    print("Original Array: " + str(inputArray))
+    for i in range(len(inputArray)):
+        r = random.randint(0, len(inputArray))
+        r = r-1
+        outputArray.append(inputArray[r])
+        inputArray.remove(inputArray[r])
+    return("New Array: " + str(outputArray))
 
 
 print(arrayShuffle(inputArray))
