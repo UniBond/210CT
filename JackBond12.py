@@ -1,5 +1,5 @@
 #include <iostream>
- 
+
 class BinTreeNode(object):
  
     def __init__(self, value):
@@ -32,22 +32,23 @@ def postorder(tree):
         postorder(tree.right)
     print(tree.value)
  
- 
+
+#in_order function. Runs iteratively instead of recursively
 def in_order(tree):
     prev_loc = []
     treePointer = tree
-    while True:
-        while treePointer != None:
-            prev_loc.append(treePointer)
-            treePointer = treePointer.left
-        if len(prev_loc) == 0:
+    while True: #While loop. Don't know how many times we need to loop
+        while treePointer != None: #Runs as long as treePointer isnt None
+            prev_loc.append(treePointer) #Append pointer to stack
+            treePointer = treePointer.left #Move pointer to left
+        if len(prev_loc) == 0: #Program exit, stack empty (base case)
             return
-        treePointer = prev_loc.pop()
-        print(treePointer.value)
-        while treePointer.right is None and len(prev_loc) != 0:
-            treePointer = prev_loc.pop()
-            print(treePointer.value)
-        treePointer = treePointer.right
+        treePointer = prev_loc.pop() #Return last item in stack
+        print(treePointer.value) #Print current value
+        while treePointer.right is None and len(prev_loc) != 0: #Nested while loop, if right is None
+            treePointer = prev_loc.pop() #Return last item in list
+            print(treePointer.value) #Print current value
+        treePointer = treePointer.right #Change pointer to right branch
         
         
             
@@ -56,7 +57,7 @@ def in_order(tree):
         
         
             
- 
+#Allows program to run, with pre-defined nodes for testing
 if __name__ == '__main__':
    
   t=tree_insert(None,6);
